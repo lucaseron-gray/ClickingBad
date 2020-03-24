@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clickingbad.R
-import com.example.clickingbad.models.Manufacturing
+import com.example.clickingbad.models.Distribution
 import com.example.clickingbad.utils.formatCost
 import com.example.clickingbad.utils.formatToHtml
 import kotlinx.android.synthetic.main.rv_item_default.view.*
 
-class ManufacturingListAdapter(private val list: List<Manufacturing>) :
-    RecyclerView.Adapter<ManufacturingListAdapter.ViewHolder>() {
+class DistributionListAdapter(private val list: List<Distribution>) :
+    RecyclerView.Adapter<DistributionListAdapter.ViewHolder>() {
 
     private val expanded = HashSet<Int>()
 
@@ -23,7 +23,7 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val upgrade: Manufacturing = list[position]
+        val upgrade: Distribution = list[position]
         holder.bind(upgrade, expanded.contains(position))
 
         holder.itemView.setOnClickListener {
@@ -39,7 +39,7 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        fun bind(upgrade: Manufacturing, expanded: Boolean) {
+        fun bind(upgrade: Distribution, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
             itemView.resource_cost.text = formatCost(upgrade.cost)
 

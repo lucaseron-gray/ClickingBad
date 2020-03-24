@@ -10,7 +10,5 @@ data class Manufacturing(
     val rps: Double,
     val risk: Float,
     val unlockRate: Float,
-    val unlockedStatus: Boolean,
-
-    val expanded: Boolean?
+    val unlockedStatus: Boolean
 )

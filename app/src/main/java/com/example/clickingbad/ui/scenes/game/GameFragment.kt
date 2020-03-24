@@ -1,13 +1,11 @@
-package com.example.clickingbad.ui.fragments
+package com.example.clickingbad.ui.scenes.game
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import com.example.clickingbad.R
-import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
 

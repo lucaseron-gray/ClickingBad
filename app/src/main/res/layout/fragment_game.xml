@@ -7,7 +7,7 @@
     android:background="@drawable/ic_game_background"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context=".ui.fragments.GameFragment">
+    tools:context=".ui.scenes.game.GameFragment">
 
     <!-- COOK AND SELL -->
     <LinearLayout

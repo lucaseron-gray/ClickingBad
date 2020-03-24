@@ -7,7 +7,7 @@ data class Distribution(
     val baseCost: Long,
     val cost: Long,
     val amount: Int,
-    val rate: Float,
+    val rps: Double,
     val risk: Float,
     val unlockRate: Float,
     val unlockedStatus: Boolean

@@ -7,16 +7,24 @@
 
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.clickingbad.ui.fragments.GameFragment"
+        android:name="com.example.clickingbad.ui.scenes.game.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_manufacturingFragment"
             app:destination="@id/manufacturingFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_distributionFragment"
+            app:destination="@id/distributionFragment" />
     </fragment>
     <fragment
         android:id="@+id/manufacturingFragment"
-        android:name="com.example.clickingbad.ui.fragments.ManufacturingFragment"
+        android:name="com.example.clickingbad.ui.scenes.manufacturing.ManufacturingFragment"
         android:label="fragment_manufacturing"
         tools:layout="@layout/fragment_manufacturing" />
+    <fragment
+        android:id="@+id/distributionFragment"
+        android:name="com.example.clickingbad.ui.scenes.distribution.DistributionFragment"
+        android:label="fragment_distribution"
+        tools:layout="@layout/fragment_distribution" />
 </navigation>
