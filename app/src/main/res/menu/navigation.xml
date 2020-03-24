@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/gameFragment"
+        android:icon="@drawable/icon_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/manufacturingFragment"
+        android:icon="@drawable/icon_manufacturing"
+        android:title="Manufacturing" />
+
+    <item
+        android:id="@+id/distributionFragment"
+        android:icon="@drawable/icon_sell"
+        android:title="Distribution" />
+
+    <item
+        android:id="@+id/launderingFragment"
+        android:icon="@drawable/icon_laundering"
+        android:title="Laundering" />
+
+    <item
+        android:id="@+id/upgradesFragment"
+        android:icon="@drawable/icon_upgrade"
+        android:title="Upgrades" />
+
+</menu>

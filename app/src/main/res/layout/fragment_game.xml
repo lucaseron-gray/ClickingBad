@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_game_background"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.GameFragment">
+
+    <!-- COOK AND SELL -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/game_box"
+        android:orientation="vertical">
+
+        <!-- COOK LAYOUT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/batchesPurity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/purity"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/batchesStored"
+                    style="@style/numbers"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:text="@string/batchesTotal"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="20sp"
+                    app:autoSizeMinTextSize="16sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/batchesNet"
+                    style="@style/numbers"
+                    android:text="@string/batchesNet"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/batchesGross"
+                    style="@style/numbers"
+                    android:text="@string/batchesGross"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonCook"
+                style="@style/button_cook_style"
+                android:background="@drawable/button_cook"
+                android:text="@string/cook_button" />
+        </LinearLayout>
+
+        <!-- SELL LAYOUT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/moneyBatchValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/batchValue"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/moneyStored"
+                    style="@style/numbers"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:text="@string/moneyStored"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="20sp"
+                    app:autoSizeMinTextSize="16sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/moneyLaundered"
+                    style="@style/numbers"
+                    android:text="@string/batchesLaundered"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/moneyPerSecond"
+                    style="@style/numbers"
+                    android:text="@string/moneyPerSecond"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSell"
+                style="@style/button_sell_style"
+                android:background="@drawable/button_sell"
+                android:text="@string/sell_button" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="4dp" />
+
+    <!-- CHANCES -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/dea_chance_field"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:text="@string/irs_chance_field"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
