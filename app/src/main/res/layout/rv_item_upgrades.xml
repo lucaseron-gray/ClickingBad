@@ -34,14 +34,15 @@
             android:layout_width="4dp"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/resource_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/resource_quantity"
-            android:textAlignment="viewEnd"
+        <ImageView
+            android:id="@+id/resource_purchased"
+            android:layout_width="20dp"
+            android:layout_gravity="center|end"
+            android:layout_height="20dp"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:visibility="visible"
+            tools:srcCompat="@drawable/checkmark_gray"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
     <TextView
@@ -69,6 +70,7 @@
     <LinearLayout
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
+        android:gravity="end|center"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="2dp"
@@ -78,32 +80,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_info">
 
-        <TextView
-            android:id="@+id/resource_values"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center|start"
-            android:text="@string/resource_values"
-            tools:text="Cooks 1.2B per second; 10% risk"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/button_layout"
-            app:layout_constraintEnd_toStartOf="@id/button_sell"
-            app:layout_constraintTop_toTopOf="@id/button_layout" />
-
         <Button
-            android:id="@+id/button_sell"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:background="@drawable/button_rv_item_available"
-            android:text="Sell" />
-
-        <Space
-            android:layout_width="4dp"
-            android:layout_height="match_parent" />
-
-        <Button
-            android:id="@+id/button_purchase"
+            android:id="@+id/button_upgrades_purchase"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:background="@drawable/button_rv_item_available"

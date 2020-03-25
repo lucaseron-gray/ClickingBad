@@ -572,7 +572,7 @@
       "label": "Air Fresheners",
       "description": "With the sweet sent of pine in the air, you can cook an extra batch at a time.",
       "action": "make_amount",
-      "purchased": false,
+      "purchased": true,
       "mod": 1,
       "cost": 10,
       "prereq": null,

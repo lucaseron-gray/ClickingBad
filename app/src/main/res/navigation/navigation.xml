@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_gameFragment_to_launderingFragment"
             app:destination="@id/launderingFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_upgradesFragment"
+            app:destination="@id/upgradesFragment" />
     </fragment>
     <fragment
         android:id="@+id/manufacturingFragment"
@@ -35,4 +38,9 @@
         android:name="com.example.clickingbad.ui.scenes.laundering.LaunderingFragment"
         android:label="fragment_laundering"
         tools:layout="@layout/fragment_laundering" />
+    <fragment
+        android:id="@+id/upgradesFragment"
+        android:name="com.example.clickingbad.ui.scenes.upgrades.UpgradesFragment"
+        android:label="fragment_upgrades"
+        tools:layout="@layout/fragment_upgrades" />
 </navigation>

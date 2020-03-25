@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.scenes.laundering.LaunderingFragment">
+    tools:context=".ui.scenes.laundering.UpgradesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_laundering"
+        android:id="@+id/rv_upgrades"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
