@@ -22,9 +22,17 @@ fun withSuffix(number: Long) : String {
     return String.format("%s%s", newString, numberSuffix[div-1])
 }
 
-// Format to HTML for styling
-fun formatToHtml(rps: Double, risk: Float) : Spanned {
+// Format manufacturing values to HTML for styling
+fun manufacturingValuesHtml(rps: Double, risk: Float) : Spanned {
     return HtmlCompat.fromHtml("Cooks <b>${formatRps(rps)}</b> per second; <b>${formatRisk(risk)}%</b> risk", HtmlCompat.FROM_HTML_MODE_LEGACY)
+}
+// Format manufacturing values to HTML for styling
+fun distributionValuesHtml(rps: Double, risk: Float) : Spanned {
+    return HtmlCompat.fromHtml("Sells <b>${formatRps(rps)}</b> per second; <b>${formatRisk(risk)}%</b> risk", HtmlCompat.FROM_HTML_MODE_LEGACY)
+}
+// Format manufacturing values to HTML for styling
+fun launderingValuesHtml(rps: Double) : Spanned {
+    return HtmlCompat.fromHtml("Launders <b>${formatRps(rps)}</b> per second", HtmlCompat.FROM_HTML_MODE_LEGACY)
 }
 // Format upgrade.cost
 fun formatCost(number: Long) : String {

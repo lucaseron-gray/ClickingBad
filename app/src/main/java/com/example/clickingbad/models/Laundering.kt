@@ -1,13 +1,13 @@
 package com.example.clickingbad.models
 
-data class Banks(
+data class Laundering(
     val id: String,
     val label: String,
     val description: String,
     val baseCost: Long,
     val cost: Long,
     val amount: Int,
-    val rate: Float,
+    val rps: Double,
     val risk: Float,
     val unlockRate: Float,
     val unlockedStatus: Boolean

@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clickingbad.R
-import com.example.clickingbad.models.Manufacturing
+import com.example.clickingbad.models.Laundering
 import com.example.clickingbad.utils.formatCost
+import com.example.clickingbad.utils.launderingValuesHtml
 import com.example.clickingbad.utils.manufacturingValuesHtml
 import kotlinx.android.synthetic.main.rv_item_default.view.*
 
-class ManufacturingListAdapter(private val list: List<Manufacturing>) :
-    RecyclerView.Adapter<ManufacturingListAdapter.ViewHolder>() {
+class LaunderingListAdapter(private val list: List<Laundering>) :
+    RecyclerView.Adapter<LaunderingListAdapter.ViewHolder>() {
 
     private val expanded = HashSet<Int>()
 
@@ -23,7 +24,7 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val upgrade: Manufacturing = list[position]
+        val upgrade: Laundering = list[position]
         holder.bind(upgrade, expanded.contains(position))
 
         holder.itemView.setOnClickListener {
@@ -39,7 +40,7 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        fun bind(upgrade: Manufacturing, expanded: Boolean) {
+        fun bind(upgrade: Laundering, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
             itemView.resource_cost.text = formatCost(upgrade.cost)
 
@@ -47,7 +48,7 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
             itemView.item_info.text = upgrade.description
 
             itemView.resource_quantity.text = upgrade.amount.toString()
-            itemView.resource_values.text = manufacturingValuesHtml(upgrade.rps, upgrade.risk)
+            itemView.resource_values.text = launderingValuesHtml(upgrade.rps)
         }
     }
 

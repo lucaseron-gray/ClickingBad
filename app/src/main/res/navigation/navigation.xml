@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_gameFragment_to_distributionFragment"
             app:destination="@id/distributionFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_launderingFragment"
+            app:destination="@id/launderingFragment" />
     </fragment>
     <fragment
         android:id="@+id/manufacturingFragment"
@@ -27,4 +30,9 @@
         android:name="com.example.clickingbad.ui.scenes.distribution.DistributionFragment"
         android:label="fragment_distribution"
         tools:layout="@layout/fragment_distribution" />
+    <fragment
+        android:id="@+id/launderingFragment"
+        android:name="com.example.clickingbad.ui.scenes.laundering.LaunderingFragment"
+        android:label="fragment_laundering"
+        tools:layout="@layout/fragment_laundering" />
 </navigation>

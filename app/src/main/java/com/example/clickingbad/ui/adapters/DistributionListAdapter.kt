@@ -7,8 +7,9 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clickingbad.R
 import com.example.clickingbad.models.Distribution
+import com.example.clickingbad.utils.distributionValuesHtml
 import com.example.clickingbad.utils.formatCost
-import com.example.clickingbad.utils.formatToHtml
+import com.example.clickingbad.utils.manufacturingValuesHtml
 import kotlinx.android.synthetic.main.rv_item_default.view.*
 
 class DistributionListAdapter(private val list: List<Distribution>) :
@@ -47,7 +48,7 @@ class DistributionListAdapter(private val list: List<Distribution>) :
             itemView.item_info.text = upgrade.description
 
             itemView.resource_quantity.text = upgrade.amount.toString()
-            itemView.resource_values.text = formatToHtml(upgrade.rps, upgrade.risk)
+            itemView.resource_values.text = distributionValuesHtml(upgrade.rps, upgrade.risk)
         }
     }
 
