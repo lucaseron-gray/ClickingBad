@@ -6,16 +6,21 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clickingbad.R
-import com.example.clickingbad.models.Laundering
+import com.example.clickingbad.business_logic.models.LaunderingItem
 import com.example.clickingbad.utils.formatCost
 import com.example.clickingbad.utils.launderingValuesHtml
-import com.example.clickingbad.utils.manufacturingValuesHtml
 import kotlinx.android.synthetic.main.rv_item_default.view.*
 
-class LaunderingListAdapter(private val list: List<Laundering>) :
+class LaunderingListAdapter() :
     RecyclerView.Adapter<LaunderingListAdapter.ViewHolder>() {
 
+    private var list: List<LaunderingItem> = emptyList()
     private val expanded = HashSet<Int>()
+
+    fun submitList(data: List<LaunderingItem>) {
+        list = data
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -24,7 +29,7 @@ class LaunderingListAdapter(private val list: List<Laundering>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val upgrade: Laundering = list[position]
+        val upgrade: LaunderingItem = list[position]
         holder.bind(upgrade, expanded.contains(position))
 
         holder.itemView.setOnClickListener {
@@ -40,15 +45,15 @@ class LaunderingListAdapter(private val list: List<Laundering>) :
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        fun bind(upgrade: Laundering, expanded: Boolean) {
+        fun bind(upgrade: LaunderingItem, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
-            itemView.resource_cost.text = formatCost(upgrade.cost)
+            itemView.resource_cost.text = formatCost(upgrade.cost!!)
 
             itemView.item_info.isVisible = expanded
             itemView.item_info.text = upgrade.description
 
             itemView.resource_quantity.text = upgrade.amount.toString()
-            itemView.resource_values.text = launderingValuesHtml(upgrade.rps)
+            itemView.resource_values.text = launderingValuesHtml(upgrade.rps!!)
         }
     }
 

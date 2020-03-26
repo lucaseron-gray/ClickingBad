@@ -3,7 +3,7 @@ package com.example.clickingbad.utils
 import android.content.Context
 import android.text.Spanned
 import androidx.core.text.HtmlCompat
-import com.example.clickingbad.models.GameStore
+import com.example.clickingbad.business_logic.models.GameLists
 import com.google.gson.Gson
 import java.nio.charset.Charset
 import java.text.DecimalFormat
@@ -60,9 +60,9 @@ fun Context.readJsonAsset(filename: String): String {
     return String(buffer, Charset.defaultCharset())
 }
 
-fun fetchJson(context: Context?): GameStore {
+fun fetchJson(context: Context?): GameLists {
     val gson = Gson()
     val inputString = context?.readJsonAsset("database.json")
 
-    return gson.fromJson(inputString, GameStore::class.java)
+    return gson.fromJson(inputString, GameLists::class.java)
 }

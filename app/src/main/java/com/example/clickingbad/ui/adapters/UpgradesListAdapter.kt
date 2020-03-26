@@ -6,20 +6,23 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clickingbad.R
-import com.example.clickingbad.models.Laundering
-import com.example.clickingbad.models.Upgrades
+import com.example.clickingbad.business_logic.models.UpgradesItem
 import com.example.clickingbad.utils.formatCost
-import com.example.clickingbad.utils.launderingValuesHtml
-import kotlinx.android.synthetic.main.rv_item_default.view.*
 import kotlinx.android.synthetic.main.rv_item_default.view.item_info
 import kotlinx.android.synthetic.main.rv_item_default.view.resource_cost
 import kotlinx.android.synthetic.main.rv_item_default.view.resource_name
 import kotlinx.android.synthetic.main.rv_item_upgrades.view.*
 
-class UpgradesListAdapter(private val list: List<Upgrades>) :
+class UpgradesListAdapter() :
     RecyclerView.Adapter<UpgradesListAdapter.ViewHolder>() {
 
+    private var list: List<UpgradesItem> = emptyList()
     private val expanded = HashSet<Int>()
+
+    fun submitList(data: List<UpgradesItem>) {
+        list = data
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -28,7 +31,7 @@ class UpgradesListAdapter(private val list: List<Upgrades>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val upgrade: Upgrades = list[position]
+        val upgrade: UpgradesItem = list[position]
         holder.bind(upgrade, expanded.contains(position))
 
         holder.itemView.setOnClickListener {
@@ -44,9 +47,9 @@ class UpgradesListAdapter(private val list: List<Upgrades>) :
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        fun bind(upgrade: Upgrades, expanded: Boolean) {
+        fun bind(upgrade: UpgradesItem, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
-            itemView.resource_cost.text = formatCost(upgrade.cost)
+            itemView.resource_cost.text = formatCost(upgrade.cost!!)
 
             when (upgrade.purchased) {
                 true -> {

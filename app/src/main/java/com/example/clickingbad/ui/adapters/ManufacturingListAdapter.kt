@@ -6,15 +6,21 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clickingbad.R
-import com.example.clickingbad.models.Manufacturing
+import com.example.clickingbad.business_logic.models.ManufacturingItem
 import com.example.clickingbad.utils.formatCost
 import com.example.clickingbad.utils.manufacturingValuesHtml
 import kotlinx.android.synthetic.main.rv_item_default.view.*
 
-class ManufacturingListAdapter(private val list: List<Manufacturing>) :
+class ManufacturingListAdapter() :
     RecyclerView.Adapter<ManufacturingListAdapter.ViewHolder>() {
 
+    private var list: List<ManufacturingItem> = emptyList()
     private val expanded = HashSet<Int>()
+
+    fun submitList(data: List<ManufacturingItem>) {
+        list = data
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -23,7 +29,7 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val upgrade: Manufacturing = list[position]
+        val upgrade: ManufacturingItem = list[position]
         holder.bind(upgrade, expanded.contains(position))
 
         holder.itemView.setOnClickListener {
@@ -39,15 +45,15 @@ class ManufacturingListAdapter(private val list: List<Manufacturing>) :
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        fun bind(upgrade: Manufacturing, expanded: Boolean) {
+        fun bind(upgrade: ManufacturingItem, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
-            itemView.resource_cost.text = formatCost(upgrade.cost)
+            itemView.resource_cost.text = formatCost(upgrade.cost!!)
 
             itemView.item_info.isVisible = expanded
             itemView.item_info.text = upgrade.description
 
             itemView.resource_quantity.text = upgrade.amount.toString()
-            itemView.resource_values.text = manufacturingValuesHtml(upgrade.rps, upgrade.risk)
+            itemView.resource_values.text = manufacturingValuesHtml(upgrade.rps!!, upgrade.risk!!)
         }
     }
 
