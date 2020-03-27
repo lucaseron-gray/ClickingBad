@@ -41,7 +41,7 @@ class ManufacturingFragment : Fragment() {
         }
 
         // asynchronous
-        viewModel.manufactingList.observe(viewLifecycleOwner, Observer {
+        viewModel.manufacturingList.observe(viewLifecycleOwner, Observer {
             manufacturingAdapter.submitList(it)
         })
     }

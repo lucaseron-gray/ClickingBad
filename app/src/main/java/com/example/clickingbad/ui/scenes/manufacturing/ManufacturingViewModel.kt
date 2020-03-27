@@ -13,7 +13,7 @@ class ManufacturingViewModel(application: Application) :
     private val manufacturingDb = ClickingBadDatabase.getInstance(application).manufacturingDao()
 
     // coroutines to return livedata list
-    val manufactingList = liveData(Dispatchers.IO) {
+    val manufacturingList = liveData(Dispatchers.IO) {
         // post value
         emit(manufacturingDb.getManufacturing())
     }

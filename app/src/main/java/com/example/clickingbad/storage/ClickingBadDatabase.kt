@@ -3,15 +3,13 @@ package com.example.clickingbad.storage
 import android.content.Context
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.clickingbad.business_logic.models.DistributionItem
-import com.example.clickingbad.business_logic.models.LaunderingItem
-import com.example.clickingbad.business_logic.models.ManufacturingItem
-import com.example.clickingbad.business_logic.models.UpgradesItem
+import com.example.clickingbad.business_logic.models.*
+import com.example.clickingbad.utils.SqlFunctions
 import com.example.clickingbad.utils.fetchJson
 
 @Database(
-    entities = [ManufacturingItem::class, DistributionItem::class, LaunderingItem::class, UpgradesItem::class],
-    version = 2,
+    entities = [ManufacturingItem::class, DistributionItem::class, LaunderingItem::class, UpgradesItem::class, AchievementsItem::class, EventsItem::class, PlayerData::class, PlayerStats::class],
+    version = 3,
     exportSchema = false
 )
 abstract class ClickingBadDatabase : RoomDatabase() {
@@ -20,6 +18,10 @@ abstract class ClickingBadDatabase : RoomDatabase() {
     abstract fun distributionDao(): DistributionDAO
     abstract fun launderingDao(): LaunderingDAO
     abstract fun upgradesDao(): UpgradesDAO
+    abstract fun achievementsDao(): AchievementsDAO
+    abstract fun eventsDao(): EventsDAO
+    abstract fun playerDataDAO(): PlayerDataDAO
+    abstract fun playerStatsDAO(): PlayerStatsDAO
 
     companion object {
 
@@ -46,48 +48,34 @@ abstract class ClickingBadDatabase : RoomDatabase() {
 
                         val jason = fetchJson(context.applicationContext)
                         for (element in jason.manufacturing!!) {
-                            db.execSQL(getSqlManufacturing(element))
+                            db.execSQL(SqlFunctions.getSqlManufacturing(element))
                         }
                         for (element in jason.distribution!!) {
-                            db.execSQL(getSqlDistribution(element))
+                            db.execSQL(SqlFunctions.getSqlDistribution(element))
                         }
                         for (element in jason.laundering!!) {
-                            db.execSQL(getSqlLaundering(element))
+                            db.execSQL(SqlFunctions.getSqlLaundering(element))
                         }
                         for (element in jason.upgrades!!) {
-                            db.execSQL(getSqlUpgrades(element))
+                            db.execSQL(SqlFunctions.getSqlUpgrades(element))
+                        }
+                        for (element in jason.achievements!!) {
+                            db.execSQL(SqlFunctions.getSqlAchievements(element))
+                        }
+                        for (element in jason.events!!) {
+                            db.execSQL(SqlFunctions.getSqlEvents(element))
+                        }
+                        for (element in jason.playerData!!) {
+                            db.execSQL(SqlFunctions.getSqlPlayerData(element))
+                        }
+                        for (element in jason.playerStats!!) {
+                            db.execSQL(SqlFunctions.getSqlPlayerStats(element))
                         }
 
                     }
                 })
                 .fallbackToDestructiveMigration()
                 .build()
-        }
-
-        private fun Boolean.toInt() = if (this) 1 else 0
-
-        private fun getSqlManufacturing(data: ManufacturingItem): String {
-            return "INSERT OR ABORT INTO `cb_manufacturing_table` " +
-                    "(`unlockRps`,`amount`,`cost`,`rps`,`baseCost`,`description`,`risk`,`label`,`id`,`unlocked`) " +
-                    "VALUES (${data.unlockRps},${data.amount},${data.cost},${data.rps},${data.baseCost},'${data.description}',${data.risk},'${data.label}','${data.id}',${data.unlocked!!.toInt()})"
-        }
-
-        private fun getSqlDistribution(data: DistributionItem): String {
-            return "INSERT OR ABORT INTO `cb_distribution_table` " +
-                    "(`unlockRps`,`amount`,`cost`,`rps`,`baseCost`,`description`,`risk`,`label`,`id`,`unlocked`) " +
-                    "VALUES (${data.unlockRps},${data.amount},${data.cost},${data.rps},${data.baseCost},'${data.description}',${data.risk},'${data.label}','${data.id}',${data.unlocked!!.toInt()})"
-        }
-
-        private fun getSqlLaundering(data: LaunderingItem): String {
-            return "INSERT OR ABORT INTO `cb_laundering_table` " +
-                    "(`unlockRps`,`amount`,`cost`,`rps`,`baseCost`,`description`,`label`,`id`,`unlocked`) " +
-                    "VALUES (${data.unlockRps},${data.amount},${data.cost},${data.rps},${data.baseCost},'${data.description}','${data.label}','${data.id}',${data.unlocked!!.toInt()})"
-        }
-
-        private fun getSqlUpgrades(data: UpgradesItem): String {
-            return "INSERT OR ABORT INTO `cb_upgrades_table` " +
-                    "(`cost`,`mod`,`purchased`,`description`,`action`,`label`,`id`,`prereq`) " +
-                    "VALUES (${data.cost},${data.mod},${data.purchased!!.toInt()},'${data.description}','${data.action}','${data.label}','${data.id}','${data.prereq}')"
         }
 
     }

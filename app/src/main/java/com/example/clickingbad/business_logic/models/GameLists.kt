@@ -14,5 +14,18 @@ data class GameLists(
 	val laundering: List<LaunderingItem>? = null,
 
     @field:SerializedName("upgrades")
-	val upgrades: List<UpgradesItem>? = null
+	val upgrades: List<UpgradesItem>? = null,
+
+    @field:SerializedName("achievements")
+    val achievements: List<AchievementsItem>? = null,
+
+    @field:SerializedName("events")
+    val events: List<EventsItem>? = null,
+
+    @field:SerializedName("player_data")
+    val playerData: List<PlayerData>? = null,
+
+    @field:SerializedName("player_stats")
+    val playerStats: List<PlayerStats>? = null
+
 )
