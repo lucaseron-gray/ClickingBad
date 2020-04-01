@@ -22,10 +22,10 @@ data class GameLists(
     @field:SerializedName("events")
     val events: List<EventsItem>? = null,
 
-    @field:SerializedName("player_data")
-    val playerData: List<PlayerData>? = null,
+    @field:SerializedName("data")
+    val data: PlayerData? = null,
 
-    @field:SerializedName("player_stats")
-    val playerStats: List<PlayerStats>? = null
+    @field:SerializedName("stats")
+    val stats: PlayerStats? = null
 
 )

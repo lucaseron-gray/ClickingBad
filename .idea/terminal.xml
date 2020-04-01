@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TerminalProjectOptionsProvider">
+    <envs>
+      <env key="Path" value="C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk-13.0.2\bin;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Gray Company Android\AppData\Local\Microsoft\WindowsApps;C:\Users\Gray Company Android\AppData\Local\GitHubDesktop\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;C:\Users\Gray Company Android\AppData\Local\Android\Sdk\platform-tools;" />
+    </envs>
+    <option name="myStartingDirectory" value="C:\Users\Gray Company Android\AndroidStudioProjects\ClickingBad" />
+  </component>
+</project>

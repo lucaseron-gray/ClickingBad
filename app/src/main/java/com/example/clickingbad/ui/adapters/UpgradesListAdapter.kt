@@ -51,7 +51,7 @@ class UpgradesListAdapter() :
             itemView.resource_name.text = upgrade.label
             itemView.resource_cost.text = formatCost(upgrade.cost!!)
 
-            when (upgrade.purchased) {
+            when (upgrade.unlocked) {
                 true -> {
                     itemView.resource_purchased.setImageResource(R.drawable.checkmark_green)
                     itemView.button_upgrades_purchase.isVisible = false

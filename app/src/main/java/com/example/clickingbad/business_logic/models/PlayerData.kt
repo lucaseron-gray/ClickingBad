@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "cb_player_data")
+@Entity(tableName = "cb_player_data_table")
 data class PlayerData(
 
     @PrimaryKey(autoGenerate = false)
@@ -21,7 +21,7 @@ data class PlayerData(
     val batchRpsGross: Long = 0,
 
     @field:SerializedName("batch_price")
-    val batchPrice: Double = 0.5, // widget_roi
+    val batchPrice: Double = 0.0, // widget_roi
 
     @field:SerializedName("cash_amount")
     val cashAmount: Long = 0,

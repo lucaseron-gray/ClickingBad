@@ -9,11 +9,11 @@ import com.example.clickingbad.business_logic.models.PlayerStats
 abstract class PlayerStatsDAO {
 
     @Insert
-    abstract fun insertData(data: List<PlayerStats>?)
+    abstract fun insertData(data: PlayerStats?)
 
     @Query(
-        "SELECT * FROM cb_player_stats"
+        "SELECT * FROM cb_player_stats_table"
     )
-    abstract suspend fun getPlayerStats(): List<PlayerStats>
+    abstract suspend fun getPlayerStats(): PlayerStats
 
 }

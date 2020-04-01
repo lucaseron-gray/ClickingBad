@@ -12,7 +12,7 @@ abstract class UpgradesDAO {
     abstract fun insertData(data: List<UpgradesItem>?)
 
     @Query(
-        "SELECT * FROM cb_upgrades_table ORDER BY purchased DESC, cost ASC"
+        "SELECT * FROM cb_upgrades_table ORDER BY unlocked DESC, cost ASC"
     )
     abstract suspend fun getUpgrades(): List<UpgradesItem>
 

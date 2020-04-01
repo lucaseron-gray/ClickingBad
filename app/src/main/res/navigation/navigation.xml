@@ -27,20 +27,44 @@
         android:id="@+id/manufacturingFragment"
         android:name="com.example.clickingbad.ui.scenes.manufacturing.ManufacturingFragment"
         android:label="fragment_manufacturing"
-        tools:layout="@layout/fragment_manufacturing" />
+        tools:layout="@layout/fragment_manufacturing" >
+        <action
+            android:id="@+id/action_manufacturingFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/distributionFragment"
         android:name="com.example.clickingbad.ui.scenes.distribution.DistributionFragment"
         android:label="fragment_distribution"
-        tools:layout="@layout/fragment_distribution" />
+        tools:layout="@layout/fragment_distribution" >
+        <action
+            android:id="@+id/action_distributionFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/launderingFragment"
         android:name="com.example.clickingbad.ui.scenes.laundering.LaunderingFragment"
         android:label="fragment_laundering"
-        tools:layout="@layout/fragment_laundering" />
+        tools:layout="@layout/fragment_laundering" >
+        <action
+            android:id="@+id/action_launderingFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
     <fragment
         android:id="@+id/upgradesFragment"
         android:name="com.example.clickingbad.ui.scenes.upgrades.UpgradesFragment"
         android:label="fragment_upgrades"
-        tools:layout="@layout/fragment_upgrades" />
+        tools:layout="@layout/fragment_upgrades" >
+        <action
+            android:id="@+id/action_upgradesFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/gameFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>

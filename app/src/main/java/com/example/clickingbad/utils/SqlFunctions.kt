@@ -8,26 +8,26 @@ object SqlFunctions {
 
     fun getSqlManufacturing(data: ManufacturingItem): String {
         return "INSERT OR ABORT INTO `cb_manufacturing_table` " +
-                "(`unlockRps`,`amount`,`cost`,`rps`,`baseCost`,`description`,`risk`,`label`,`id`,`unlocked`) " +
-                "VALUES (${data.unlockRps},${data.amount},${data.cost},${data.rps},${data.baseCost},'${data.description}',${data.risk},'${data.label}','${data.id}',${data.unlocked!!.toInt()})"
+                "(`label`,`description`,`amount`,`risk`,`rps`,`baseCost`,`cost`,`unlockRps`,`unlocked`,`id`) " +
+                "VALUES ('${data.label}','${data.description}',${data.amount},${data.risk},${data.rps},${data.baseCost},${data.cost},${data.unlockRps},${data.unlocked!!.toInt()},'${data.id}')"
     }
 
     fun getSqlDistribution(data: DistributionItem): String {
         return "INSERT OR ABORT INTO `cb_distribution_table` " +
-                "(`unlockRps`,`amount`,`cost`,`rps`,`baseCost`,`description`,`risk`,`label`,`id`,`unlocked`) " +
-                "VALUES (${data.unlockRps},${data.amount},${data.cost},${data.rps},${data.baseCost},'${data.description}',${data.risk},'${data.label}','${data.id}',${data.unlocked!!.toInt()})"
+                "(`label`,`description`,`amount`,`risk`,`rps`,`baseCost`,`cost`,`unlockRps`,`unlocked`,`id`) " +
+                "VALUES ('${data.label}','${data.description}',${data.amount},${data.risk},${data.rps},${data.baseCost},${data.cost},${data.unlockRps},${data.unlocked!!.toInt()},'${data.id}')"
     }
 
     fun getSqlLaundering(data: LaunderingItem): String {
         return "INSERT OR ABORT INTO `cb_laundering_table` " +
-                "(`unlockRps`,`amount`,`cost`,`rps`,`baseCost`,`description`,`label`,`id`,`unlocked`) " +
-                "VALUES (${data.unlockRps},${data.amount},${data.cost},${data.rps},${data.baseCost},'${data.description}','${data.label}','${data.id}',${data.unlocked!!.toInt()})"
+                "(`label`,`description`,`amount`,`rps`,`baseCost`,`cost`,`unlockRps`,`unlocked`,`id`) " +
+                "VALUES ('${data.label}','${data.description}',${data.amount},${data.rps},${data.baseCost},${data.cost},${data.unlockRps},${data.unlocked!!.toInt()},'${data.id}')"
     }
 
     fun getSqlUpgrades(data: UpgradesItem): String {
         return "INSERT OR ABORT INTO `cb_upgrades_table` " +
-                "(`cost`,`mod`,`purchased`,`description`,`action`,`label`,`id`,`prereq`) " +
-                "VALUES (${data.cost},${data.mod},${data.purchased!!.toInt()},'${data.description}','${data.action}','${data.label}','${data.id}','${data.prereq}')"
+                "(`label`,`description`,`action`,`unlocked`,`mod`,`cost`,`prereq`,`id`) " +
+                "VALUES ('${data.label}','${data.description}','${data.action}',${data.unlocked!!.toInt()},${data.mod},${data.cost},'${data.prereq}','${data.id}')"
     }
 
     fun getSqlAchievements(data: AchievementsItem): String {
@@ -44,14 +44,14 @@ object SqlFunctions {
 
     fun getSqlPlayerData(data: PlayerData): String {
         return "INSERT OR ABORT INTO `cb_player_data_table` " +
-                "(`batch_amount`,`batch_rps_net`,`batch_rps_gross`,`batch_price`,`cash_amount`,`cash_laundered`,`cash_laundered_rps`) " +
-                "VALUES (${data.batchAmount},${data.batchRpsNet},${data.batchRpsGross},${data.batchPrice},${data.cashAmount},${data.cashLaundered},${data.cashRps})"
+                "(`id`,`batchAmount`,`batchRpsNet`,`batchRpsGross`,`batchPrice`,`cashAmount`,`cashLaundered`,`cashRps`) " +
+                "VALUES ('${data.id}',${data.batchAmount},${data.batchRpsNet},${data.batchRpsGross},${data.batchPrice},${data.cashAmount},${data.cashLaundered},${data.cashRps})"
     }
 
     fun getSqlPlayerStats(data: PlayerStats): String {
         return "INSERT OR ABORT INTO `cb_player_stats_table` " +
-                "(`batches_cooked`,`batches_cooked_hand`,`batches_sold`,`batches_sold_hand`,`upgrades_purchased`,`cash_earned`,`cash_spent`,`seconds_playing`) " +
-                "VALUES (${data.batchesCooked},${data.batchesCookedHand},${data.batchesSold},${data.batchesSoldHand},${data.upgradesPurchased},${data.cashEarned},${data.cashSpent},${data.secondsPlaying})"
+                "(`id`,`batchesCooked`,`batchesCookedHand`,`batchesSold`,`batchesSoldHand`,`upgradesPurchased`,`cashEarned`,`cashSpent`,`secondsPlaying`) " +
+                "VALUES ('${data.id}',${data.batchesCooked},${data.batchesCookedHand},${data.batchesSold},${data.batchesSoldHand},${data.upgradesPurchased},${data.cashEarned},${data.cashSpent},${data.secondsPlaying})"
     }
 
 }

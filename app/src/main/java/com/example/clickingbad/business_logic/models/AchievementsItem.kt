@@ -37,6 +37,5 @@ data class AchievementsItem(
 
     @PrimaryKey(autoGenerate = false)
     @field:SerializedName("id")
-    val id: Int? = null
-
+    val id: String
 )
