@@ -23,9 +23,8 @@ data class GameLists(
     val events: List<EventsItem>? = null,
 
     @field:SerializedName("data")
-    val data: PlayerData? = null,
+    val data: PlayerData,
 
     @field:SerializedName("stats")
-    val stats: PlayerStats? = null
-
+    val stats: PlayerStats
 )

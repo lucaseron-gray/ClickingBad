@@ -3,9 +3,9 @@
 
     <string name="purity">Batches (<i>Angelic</i>)</string>
     <string name="batchesTotal">123,456,789,123,456,789</string>
-    <string name="batchesNet">123,456/s (net)</string>
-    <string name="batchesGross">123,456/s (gross)</string>
-    <string name="batchValue">Cash Money ($123.45 ea)</string>
+    <string name="batchesNet">%s/s (net)</string>
+    <string name="batchesGross">%s/s (gross)</string>
+    <string name="batchValue">Cash Money (\$%s ea)</string>
     <string name="moneyStored">$123,456,789,123,456,789</string>
     <string name="batchesLaundered">$123,456,789 laundered</string>
     <string name="moneyPerSecond">$123,456,789/s</string>

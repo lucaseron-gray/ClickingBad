@@ -1,27 +1,21 @@
 package com.example.clickingbad.ui.scenes.game
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleObserver
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.clickingbad.R
 import com.example.clickingbad.ui.activity.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_game.*
 
-/** onSaveInstanceState Bundle Keys **/
-//const val KEY_BATCHES_AMOUNT = "batches_amount_key"
-
 class GameFragment : Fragment() {
 
-    private val gameViewModel: GameViewModel by viewModels()
-    private val sharedViewModel: SharedViewModel by viewModels()
-
-    private var bAmount: Long? = 0
+    // passando 'activityViewModels' pra que o viewModel não seja recriado na navegação
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,42 +23,54 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_game, container, false)
+        return inflater.inflate(R.layout.fragment_game, container,false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity?.let {
-            observeData(sharedViewModel)
-        }
-
-        buttonCook.setOnClickListener {
-            gameViewModel.onButtonCookClicked()
-        }
-
-        buttonSell.setOnClickListener {
-            gameViewModel.onButtonSellClicked()
-        }
-
-        batchesStored.text = bAmount.toString()
-    }
-
-    private fun observeData(viewModel: SharedViewModel) {
-        viewModel.dataList.observe(viewLifecycleOwner, Observer {
+        // observa model e atribui valores
+        sharedViewModel.livePlayerData.observe(viewLifecycleOwner, Observer {
             it?.let {
-                moneyBatchValue.text = "Cash Money ($"+it.batchPrice+" ea)"
+
+                vBatchPurity.text = "Batches (${when (it.batchPrice) {
+                    1 -> "Deadly"
+                    2 -> "Dangerous"
+                    4 -> "Unhealthy"
+                    6 -> "Cloudy"
+                    10 -> "Poor"
+                    13 -> "Average"
+                    16 -> "Good"
+                    20 -> "Crystal"
+                    25 -> "Blue Gold"
+                    50 -> "Blue Platinum"
+                    100 -> "FDA Approved Additive"
+                    159 -> "Atomically Perfect"
+                    211 -> "Holy"
+                    300 -> "Angelic"
+                    1000 -> "Nectar of The Gods"
+                    else -> "Undefined"
+                }})"
+
+                vBatchAmount.text = it.batchAmount.toString()
+                vBatchRpsNet.text = "${it.batchRpsNet}/s (net)"
+                vBatchRpsGross.text = "${it.batchRpsGross}/s (gross)"
+
+                vBatchPrice.text = "Cash ($${it.batchPrice}.00 each)"
+                vCashAmount.text = "$${it.cashAmount}"
+                vCashLaundered.text = "$${it.cashLaundered} laundered"
+                vCashRps.text = "$${it.cashRps}/s"
+
             }
         })
+
+        // ao click, muda valor dentro do viewModel, que tá sendo observado em cima ^
+        buttonCook.setOnClickListener {
+            sharedViewModel.onButtonCookClicked()
+        }
+        buttonSell.setOnClickListener {
+            sharedViewModel.onButtonSellClicked()
+        }
     }
-
-    /**
-     * Called when the user navigates away from the app but might come back
-     */
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-//        outState.putLong(KEY_BATCHES_AMOUNT, bAmount!!)
-    }
-
 }

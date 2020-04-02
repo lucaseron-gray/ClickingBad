@@ -1415,6 +1415,7 @@
       "property": "stats.total_spent",
       "required": 1000000,
       "unlocked": false,
+      "hidden": false,
       "id": "a29"
     },
     {
@@ -1423,6 +1424,7 @@
       "property": "stats.total_spent",
       "required": 1000000000,
       "unlocked": false,
+      "hidden": false,
       "id": "a30"
     },
     {
@@ -1431,6 +1433,7 @@
       "property": "stats.total_spent",
       "required": 1000000000000,
       "unlocked": false,
+      "hidden": false,
       "id": "a31"
     },
     {
@@ -1558,23 +1561,23 @@
   ],
   "data": {
     "id": "player",
-    "batchAmount": 0,
-    "batchRpsNet": 0,
-    "batchRpsGross": 0,
-    "batchPrice": 0.50,
-    "cashAmount": 0,
-    "cashLaundered": 0,
-    "cashRps": 0
+    "batch_amount": 0,
+    "batch_rps_net": 0,
+    "batch_rps_gross": 0,
+    "batch_price": 1,
+    "cash_amount": 0,
+    "cash_laundered": 0,
+    "cash_rps": 0
   },
   "stats": {
     "id": "player",
-    "batchesCooked": 0.0,
-    "batchesCookedHand": 0.0,
-    "batchesSold": 0.0,
-    "batchesSoldHand": 0.0,
-    "upgradesPurchased": 0,
-    "cashEarned": 0.0,
-    "cashSpent": 0.0,
-    "secondsPlaying": 0
+    "batches_cooked": 0,
+    "batches_cooked_hand": 0,
+    "batches_sold": 0,
+    "batches_sold_hand": 0,
+    "upgrades_purchased": 0,
+    "cash_earned": 0,
+    "cash_spent": 0,
+    "seconds_playing": 0
   }
 }

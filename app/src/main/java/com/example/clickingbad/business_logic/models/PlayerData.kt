@@ -12,24 +12,23 @@ data class PlayerData(
     val id: String,
 
     @field:SerializedName("batch_amount")
-    val batchAmount: Long = 0,
+    var batchAmount: Long = 0,
 
     @field:SerializedName("batch_rps_net")
-    val batchRpsNet: Long = 0,
+    var batchRpsNet: Long = 0,
 
     @field:SerializedName("batch_rps_gross")
-    val batchRpsGross: Long = 0,
+    var batchRpsGross: Long = 0,
 
     @field:SerializedName("batch_price")
-    val batchPrice: Double = 0.0, // widget_roi
+    var batchPrice: Int = 0,
 
     @field:SerializedName("cash_amount")
-    val cashAmount: Long = 0,
+    var cashAmount: Long = 0,
 
     @field:SerializedName("cash_laundered")
-    val cashLaundered: Long = 0,
+    var cashLaundered: Long = 0,
 
     @field:SerializedName("cash_rps")
-    val cashRps: Long = 0
-
+    var cashRps: Long = 0
 )

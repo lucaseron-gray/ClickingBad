@@ -26,11 +26,11 @@ fun withSuffix(number: Long) : String {
 fun manufacturingValuesHtml(rps: Double, risk: Float) : Spanned {
     return HtmlCompat.fromHtml("Cooks <b>${formatRps(rps)}</b> per second; <b>${formatRisk(risk)}%</b> risk", HtmlCompat.FROM_HTML_MODE_LEGACY)
 }
-// Format manufacturing values to HTML for styling
+// Format distribution values to HTML for styling
 fun distributionValuesHtml(rps: Double, risk: Float) : Spanned {
     return HtmlCompat.fromHtml("Sells <b>${formatRps(rps)}</b> per second; <b>${formatRisk(risk)}%</b> risk", HtmlCompat.FROM_HTML_MODE_LEGACY)
 }
-// Format manufacturing values to HTML for styling
+// Format laundering values to HTML for styling
 fun launderingValuesHtml(rps: Double) : Spanned {
     return HtmlCompat.fromHtml("Launders <b>${formatRps(rps)}</b> per second", HtmlCompat.FROM_HTML_MODE_LEGACY)
 }

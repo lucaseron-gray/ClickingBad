@@ -1,15 +1,17 @@
 package com.example.clickingbad.storage
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.example.clickingbad.business_logic.models.PlayerData
 
 @Dao
 abstract class PlayerDataDAO {
 
     @Insert
-    abstract fun insertData(data: PlayerData?)
+    abstract fun insertData(data: PlayerData)
+
+    @Update
+    abstract suspend fun updateData(data: PlayerData)
 
     @Query(
         "SELECT * FROM cb_player_data_table"

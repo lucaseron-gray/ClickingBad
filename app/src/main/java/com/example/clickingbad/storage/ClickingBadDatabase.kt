@@ -9,7 +9,7 @@ import com.example.clickingbad.utils.fetchJson
 
 @Database(
     entities = [ManufacturingItem::class, DistributionItem::class, LaunderingItem::class, UpgradesItem::class, AchievementsItem::class, EventsItem::class, PlayerData::class, PlayerStats::class],
-    version = 10,
+    version = 11,
     exportSchema = false
 )
 abstract class ClickingBadDatabase : RoomDatabase() {
@@ -66,8 +66,8 @@ abstract class ClickingBadDatabase : RoomDatabase() {
                             db.execSQL(SqlFunctions.getSqlEvents(element))
                         }
 
-                        db.execSQL(SqlFunctions.getSqlPlayerData(jason.data!!))
-                        db.execSQL(SqlFunctions.getSqlPlayerStats(jason.stats!!))
+                        db.execSQL(SqlFunctions.getSqlPlayerData(jason.data))
+                        db.execSQL(SqlFunctions.getSqlPlayerStats(jason.stats))
                     }
                 })
                 .fallbackToDestructiveMigration()
