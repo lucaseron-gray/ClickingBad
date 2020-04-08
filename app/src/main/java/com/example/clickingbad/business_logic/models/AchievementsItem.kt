@@ -8,14 +8,27 @@ import com.google.gson.annotations.SerializedName
 data class AchievementsItem(
 
     @field:SerializedName("label")
-    val label: String? = null,
+    val label: String = "",
 
     @field:SerializedName("description")
-    val description: String? = null,
+    val description: String = "",
 
     @field:SerializedName("property")
-    val property: String? = null,
-    /*
+    val property: String = "",
+
+    @field:SerializedName("required")
+    val required: Long = 0, // based on field 'property', data from "cb_player_stats"
+
+    @field:SerializedName("unlocked")
+    var unlocked: Boolean = false,
+
+    @PrimaryKey(autoGenerate = false)
+    @field:SerializedName("id")
+    val id: String = ""
+
+)
+
+/*
     * Available properties:
     *
     * batches_cooked
@@ -28,14 +41,3 @@ data class AchievementsItem(
     * seconds_playing
     *
     * */
-
-    @field:SerializedName("required")
-    val required: Long? = null, // based on field 'property', data from "cb_player_stats"
-
-    @field:SerializedName("unlocked")
-    val unlocked: Boolean = false,
-
-    @PrimaryKey(autoGenerate = false)
-    @field:SerializedName("id")
-    val id: String
-)

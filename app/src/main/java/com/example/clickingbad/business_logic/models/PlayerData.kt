@@ -3,6 +3,7 @@ package com.example.clickingbad.business_logic.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 @Entity(tableName = "cb_player_data_table")
 data class PlayerData(
@@ -21,7 +22,7 @@ data class PlayerData(
     var batchRpsGross: Long = 0,
 
     @field:SerializedName("batch_price")
-    var batchPrice: Int = 0,
+    var batchPrice: Int = 1,
 
     @field:SerializedName("cash_amount")
     var cashAmount: Long = 0,
@@ -30,5 +31,8 @@ data class PlayerData(
     var cashLaundered: Long = 0,
 
     @field:SerializedName("cash_rps")
-    var cashRps: Long = 0
+    var cashRps: Long = 0,
+
+    var lastTick: Long = 0
+
 )

@@ -1,6 +1,5 @@
 package com.example.clickingbad.storage
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.clickingbad.business_logic.models.PlayerData
 
@@ -10,7 +9,7 @@ abstract class PlayerDataDAO {
     @Insert
     abstract fun insertData(data: PlayerData)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun updateData(data: PlayerData)
 
     @Query(

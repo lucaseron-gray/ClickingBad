@@ -8,27 +8,28 @@ import com.google.gson.annotations.SerializedName
 data class UpgradesItem(
 
 	@field:SerializedName("label")
-	val label: String? = null,
+	val label: String = "",
 
 	@field:SerializedName("description")
-	val description: String? = null,
+	val description: String = "",
 
 	@field:SerializedName("action")
-	val action: String? = null,
+	val action: String = "",
 
 	@field:SerializedName("unlocked")
-	val unlocked: Boolean? = null,
+	var unlocked: Boolean = false,
 
 	@field:SerializedName("mod")
-	val mod: Float? = null,
+	val mod: Float = 0f,
 
 	@field:SerializedName("cost")
-	val cost: Long? = null,
+	val cost: Long = 0,
 
 	@field:SerializedName("prereq")
-	val prereq: String? = null,
+	val prereq: String = "",
 
 	@PrimaryKey(autoGenerate = false)
 	@field:SerializedName("id")
-	val id: String
+	val id: String = ""
+
 )

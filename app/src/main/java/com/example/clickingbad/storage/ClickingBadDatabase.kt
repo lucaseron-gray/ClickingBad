@@ -9,7 +9,7 @@ import com.example.clickingbad.utils.fetchJson
 
 @Database(
     entities = [ManufacturingItem::class, DistributionItem::class, LaunderingItem::class, UpgradesItem::class, AchievementsItem::class, EventsItem::class, PlayerData::class, PlayerStats::class],
-    version = 11,
+    version = 12,
     exportSchema = false
 )
 abstract class ClickingBadDatabase : RoomDatabase() {
@@ -47,27 +47,27 @@ abstract class ClickingBadDatabase : RoomDatabase() {
                         super.onCreate(db)
 
                         val jason = fetchJson(context.applicationContext)
-                        for (element in jason.manufacturing!!) {
+                        for (element in jason.manufacturing) {
                             db.execSQL(SqlFunctions.getSqlManufacturing(element))
                         }
-                        for (element in jason.distribution!!) {
+                        for (element in jason.distribution) {
                             db.execSQL(SqlFunctions.getSqlDistribution(element))
                         }
-                        for (element in jason.laundering!!) {
+                        for (element in jason.laundering) {
                             db.execSQL(SqlFunctions.getSqlLaundering(element))
                         }
-                        for (element in jason.upgrades!!) {
+                        for (element in jason.upgrades) {
                             db.execSQL(SqlFunctions.getSqlUpgrades(element))
                         }
-                        for (element in jason.achievements!!) {
+                        for (element in jason.achievements) {
                             db.execSQL(SqlFunctions.getSqlAchievements(element))
                         }
-                        for (element in jason.events!!) {
+                        for (element in jason.events) {
                             db.execSQL(SqlFunctions.getSqlEvents(element))
                         }
 
-                        db.execSQL(SqlFunctions.getSqlPlayerData(jason.data))
-                        db.execSQL(SqlFunctions.getSqlPlayerStats(jason.stats))
+                        db.execSQL(SqlFunctions.getSqlPlayerData())
+                        db.execSQL(SqlFunctions.getSqlPlayerStats())
                     }
                 })
                 .fallbackToDestructiveMigration()

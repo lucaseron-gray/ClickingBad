@@ -10,9 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clickingbad.R
 import com.example.clickingbad.ui.adapters.LaunderingListAdapter
-import com.example.clickingbad.ui.adapters.ManufacturingListAdapter
-import com.example.clickingbad.ui.scenes.manufacturing.ManufacturingViewModel
-import com.example.clickingbad.utils.fetchJson
 import kotlinx.android.synthetic.main.fragment_laundering.*
 
 class LaunderingFragment : Fragment() {
@@ -40,4 +37,5 @@ class LaunderingFragment : Fragment() {
             launderingAdapter.submitList(it)
         })
     }
+
 }

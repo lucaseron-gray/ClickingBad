@@ -8,33 +8,34 @@ import com.google.gson.annotations.SerializedName
 data class DistributionItem(
 
 	@field:SerializedName("label")
-	val label: String? = null,
+	val label: String = "",
 
 	@field:SerializedName("description")
-	val description: String? = null,
+	val description: String = "",
 
 	@field:SerializedName("amount")
-	val amount: Int? = null,
+	var amount: Int = 0,
 
 	@field:SerializedName("risk")
-	val risk: Float? = null,
+	val risk: Float = 0f,
 
 	@field:SerializedName("rps")
-	val rps: Double? = null,
+	val rps: Long = 0,
 
 	@field:SerializedName("base_cost")
-	val baseCost: Long? = null,
+	val baseCost: Long = 0,
 
 	@field:SerializedName("cost")
-	val cost: Long? = null,
+	var cost: Long = 0,
 
 	@field:SerializedName("unlock_rps")
-	val unlockRps: Float? = null,
+	val unlockRps: Float = 0f,
 
 	@field:SerializedName("unlocked")
-	val unlocked: Boolean? = null,
+	var unlocked: Boolean = false,
 
 	@PrimaryKey(autoGenerate = false)
 	@field:SerializedName("id")
-	val id: String
+	val id: String = ""
+
 )

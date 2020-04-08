@@ -12,27 +12,27 @@ data class PlayerStats(
     val id: String,
 
     @field:SerializedName("batches_cooked")
-    val batchesCooked: Long = 0,
+    var batchesCooked: Long = 0,
 
     @field:SerializedName("batches_cooked_hand")
-    val batchesCookedHand: Long = 0,
+    var batchesCookedHand: Long = 0,
 
     @field:SerializedName("batches_sold")
-    val batchesSold: Long = 0,
+    var batchesSold: Long = 0,
 
     @field:SerializedName("batches_sold_hand")
-    val batchesSoldHand: Long = 0,
+    var batchesSoldHand: Long = 0,
 
     @field:SerializedName("upgrades_purchased")
-    val upgradesPurchased: Int = 0,
+    var upgradesPurchased: Int = 0,
 
     @field:SerializedName("cash_earned")
-    val cashEarned: Long = 0,
+    var cashEarned: Long = 0,
 
     @field:SerializedName("cash_spent")
-    val cashSpent: Long = 0,
+    var cashSpent: Long = 0,
 
     @field:SerializedName("seconds_playing")
-    val secondsPlaying: Int = 0
+    var secondsPlaying: Int = 0
 
 )

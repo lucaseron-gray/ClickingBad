@@ -28,7 +28,7 @@ class ManufacturingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_manufacturing, container,false)
+        return inflater.inflate(R.layout.fragment_manufacturing, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,4 +45,5 @@ class ManufacturingFragment : Fragment() {
             manufacturingAdapter.submitList(it)
         })
     }
+
 }

@@ -8,22 +8,22 @@ import com.google.gson.annotations.SerializedName
 data class EventsItem(
 
     @field:SerializedName("name")
-    val name: String? = null,
+    val name: String = "",
 
     @field:SerializedName("description")
-    val description: String? = null,
+    val description: String = "",
 
     @field:SerializedName("chance")
-    val chance: Double? = null,
+    val chance: Double = 0.0,
 
     @field:SerializedName("mod")
-    val mod: Int? = null,
+    val mod: Int = 0,
 
     @field:SerializedName("type")
-    val type: String? = null,
+    val type: String = "",
 
     @PrimaryKey(autoGenerate = false)
     @field:SerializedName("id")
-    val id: String
+    val id: String = ""
 
 )

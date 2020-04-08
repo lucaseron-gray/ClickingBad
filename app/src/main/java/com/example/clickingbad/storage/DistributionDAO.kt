@@ -16,4 +16,9 @@ abstract class DistributionDAO {
     )
     abstract suspend fun getDistribution(): List<DistributionItem>
 
+    @Query(
+        "SELECT * FROM cb_distribution_table WHERE unlocked = 1"
+    )
+    abstract suspend fun getUnlockedDistribution(): List<DistributionItem>
+
 }

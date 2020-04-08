@@ -1,19 +1,24 @@
 <resources>
     <string name="app_name">Clicking Bad</string>
 
-    <string name="purity">Batches (<i>Angelic</i>)</string>
-    <string name="batchesTotal">123,456,789,123,456,789</string>
-    <string name="batchesNet">%s/s (net)</string>
-    <string name="batchesGross">%s/s (gross)</string>
-    <string name="batchValue">Cash Money (\$%s ea)</string>
-    <string name="moneyStored">$123,456,789,123,456,789</string>
-    <string name="batchesLaundered">$123,456,789 laundered</string>
-    <string name="moneyPerSecond">$123,456,789/s</string>
+    <string name="purity">Batches (\"FDA Approved Additive\")</string>
+    <string name="batchesTotal">295,982,600,465,950</string>
+    <string name="batchesNet">6,845,460/s (net)</string>
+    <string name="batchesGross">68,783,673,000/s (gross)</string>
+
+    <string name="batchValue">Cash ($270.00 each)</string>
+    <string name="moneyStored">$2,177,860,858,351,912,100</string>
+    <string name="batchesLaundered">$1,882,458,924,168,231,100 laundered</string>
+    <string name="moneyPerSecond">$18,569,743,435,800/s</string>
+
     <string name="cook_button">COOK!</string>
     <string name="sell_button">SELL!</string>
+
     <string name="dea_chance_field">You have a <b>nearly impossible</b> chance of a DEA raid (99%)</string>
     <string name="irs_chance_field">You have a <b>nearly impossible</b> chance of an IRS audit (99%)</string>
+
     <string name="event_text">You were able to negotiate your way out of a DEA raid.</string>
+
     <string name="resource_values"><![CDATA[Cooks <b>%s</b> per second; <b>%s%%</b> risk]]></string>
     <string name="resource_name">%s</string>
     <string name="resource_quantity">%d</string>

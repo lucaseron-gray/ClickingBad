@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clickingbad.R
 import com.example.clickingbad.ui.adapters.UpgradesListAdapter
-import com.example.clickingbad.utils.fetchJson
 import kotlinx.android.synthetic.main.fragment_upgrades.*
 
 class UpgradesFragment : Fragment() {
@@ -38,4 +37,5 @@ class UpgradesFragment : Fragment() {
             upgradesAdapter.submitList(it)
         })
     }
+
 }

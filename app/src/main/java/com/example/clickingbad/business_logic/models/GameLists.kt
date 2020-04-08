@@ -5,26 +5,21 @@ import com.google.gson.annotations.SerializedName
 data class GameLists(
 
     @field:SerializedName("manufacturing")
-	val manufacturing: List<ManufacturingItem>? = null,
+	val manufacturing: List<ManufacturingItem> = emptyList(),
 
     @field:SerializedName("distribution")
-	val distribution: List<DistributionItem>? = null,
+	val distribution: List<DistributionItem> = emptyList(),
 
     @field:SerializedName("laundering")
-	val laundering: List<LaunderingItem>? = null,
+	val laundering: List<LaunderingItem> = emptyList(),
 
     @field:SerializedName("upgrades")
-	val upgrades: List<UpgradesItem>? = null,
+	val upgrades: List<UpgradesItem> = emptyList(),
 
     @field:SerializedName("achievements")
-    val achievements: List<AchievementsItem>? = null,
+    val achievements: List<AchievementsItem> = emptyList(),
 
     @field:SerializedName("events")
-    val events: List<EventsItem>? = null,
+    val events: List<EventsItem> = emptyList()
 
-    @field:SerializedName("data")
-    val data: PlayerData,
-
-    @field:SerializedName("stats")
-    val stats: PlayerStats
 )

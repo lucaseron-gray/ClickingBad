@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.clickingbad.R
 import com.example.clickingbad.ui.activity.SharedViewModel
+import com.example.clickingbad.utils.formatPurity
 import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
@@ -34,24 +35,7 @@ class GameFragment : Fragment() {
         sharedViewModel.livePlayerData.observe(viewLifecycleOwner, Observer {
             it?.let {
 
-                vBatchPurity.text = "Batches (${when (it.batchPrice) {
-                    1 -> "Deadly"
-                    2 -> "Dangerous"
-                    4 -> "Unhealthy"
-                    6 -> "Cloudy"
-                    10 -> "Poor"
-                    13 -> "Average"
-                    16 -> "Good"
-                    20 -> "Crystal"
-                    25 -> "Blue Gold"
-                    50 -> "Blue Platinum"
-                    100 -> "FDA Approved Additive"
-                    159 -> "Atomically Perfect"
-                    211 -> "Holy"
-                    300 -> "Angelic"
-                    1000 -> "Nectar of The Gods"
-                    else -> "Undefined"
-                }})"
+                vBatchPurity.text = formatPurity(it.batchPrice)
 
                 vBatchAmount.text = it.batchAmount.toString()
                 vBatchRpsNet.text = "${it.batchRpsNet}/s (net)"
@@ -73,4 +57,5 @@ class GameFragment : Fragment() {
             sharedViewModel.onButtonSellClicked()
         }
     }
+
 }

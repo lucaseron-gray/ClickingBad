@@ -47,13 +47,18 @@ class LaunderingListAdapter() :
 
         fun bind(upgrade: LaunderingItem, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
-            itemView.resource_cost.text = formatCost(upgrade.cost!!)
+            itemView.resource_cost.text = formatCost(upgrade.cost)
 
             itemView.item_info.isVisible = expanded
             itemView.item_info.text = upgrade.description
 
             itemView.resource_quantity.text = upgrade.amount.toString()
-            itemView.resource_values.text = launderingValuesHtml(upgrade.rps!!)
+            itemView.resource_values.text = launderingValuesHtml(upgrade.rps)
+
+            when (upgrade.amount) {
+                0 -> itemView.button_sell.isVisible = false
+                else -> itemView.button_sell.isVisible = true
+            }
         }
     }
 

@@ -5,7 +5,7 @@
       "description": "A cheap shed with electricity.",
       "amount": 0,
       "risk": 0.05,
-      "rps": 0.2,
+      "rps": 1,
       "base_cost": 20,
       "cost": 20,
       "unlock_rps": 0,
@@ -17,10 +17,10 @@
       "description": "A low cost RV, perfect for remote cooking.",
       "amount": 0,
       "risk": 0.005,
-      "rps": 1,
+      "rps": 2,
       "base_cost": 210,
       "cost": 210,
-      "unlock_rps": 0.2,
+      "unlock_rps": 1,
       "unlocked": false,
       "id": "m2"
     },
@@ -32,7 +32,7 @@
       "rps": 5,
       "base_cost": 1000,
       "cost": 1000,
-      "unlock_rps": 1.2,
+      "unlock_rps": 2,
       "unlocked": false,
       "id": "m3"
     },
@@ -211,7 +211,7 @@
       "description": "A common street thug to sell your goods.",
       "amount": 0,
       "risk": 0.03,
-      "rps": 0.2,
+      "rps": 1,
       "base_cost": 20,
       "cost": 20,
       "unlock_rps": 0.5,
@@ -223,10 +223,10 @@
       "description": "Someone to stuff drugs in their rectum and distribute them.",
       "amount": 0,
       "risk": 0.005,
-      "rps": 1,
+      "rps": 2,
       "base_cost": 230,
       "cost": 230,
-      "unlock_rps": 0.2,
+      "unlock_rps": 1,
       "unlocked": false,
       "id": "d2"
     },
@@ -238,7 +238,7 @@
       "rps": 8,
       "base_cost": 2300,
       "cost": 2300,
-      "unlock_rps": 1,
+      "unlock_rps": 2,
       "unlocked": false,
       "id": "d3"
     },
@@ -1044,7 +1044,6 @@
       "action": "sell_rps_multiplier",
       "unlocked": false,
       "mod": 2,
-      "hidden": true,
       "cost": 15000000,
       "prereq": "hidden",
       "id": "u47.1"
@@ -1289,7 +1288,6 @@
       "property": "clickers.12_moon_lab.amount",
       "required": 1,
       "unlocked": false,
-      "hidden": false,
       "id": "a15"
     },
     {
@@ -1298,7 +1296,6 @@
       "property": "clickers.station.amount",
       "required": 1,
       "unlocked": false,
-      "hidden": false,
       "id": "a16"
     },
     {
@@ -1307,7 +1304,6 @@
       "property": "sellers.07_dea.amount",
       "required": 1,
       "unlocked": false,
-      "hidden": false,
       "id": "a17"
     },
     {
@@ -1316,7 +1312,6 @@
       "property": "banks.b_banana_stand.amount",
       "required": 1,
       "unlocked": false,
-      "hidden": false,
       "id": "a18"
     },
     {
@@ -1325,7 +1320,6 @@
       "property": "sellers.senator.amount",
       "required": 100,
       "unlocked": false,
-      "hidden": false,
       "id": "a19"
     },
     {
@@ -1334,7 +1328,6 @@
       "property": "banks.b_franchise.amount",
       "required": 1,
       "unlocked": false,
-      "hidden": false,
       "id": "a20"
     },
     {
@@ -1343,7 +1336,6 @@
       "property": "banks.b_spacecorp.amount",
       "required": 1,
       "unlocked": false,
-      "hidden": false,
       "id": "a21"
     },
     {
@@ -1352,7 +1344,6 @@
       "property": "stats.seconds_played",
       "required": 60,
       "unlocked": false,
-      "hidden": false,
       "id": "a22"
     },
     {
@@ -1361,7 +1352,6 @@
       "property": "stats.seconds_played",
       "required": 300,
       "unlocked": false,
-      "hidden": false,
       "id": "a23"
     },
     {
@@ -1370,7 +1360,6 @@
       "property": "stats.seconds_played",
       "required": 3600,
       "unlocked": false,
-      "hidden": false,
       "id": "a24"
     },
     {
@@ -1379,7 +1368,6 @@
       "property": "stats.seconds_played",
       "required": 43200,
       "unlocked": false,
-      "hidden": false,
       "id": "a25"
     },
     {
@@ -1388,7 +1376,6 @@
       "property": "stats.seconds_played",
       "required": 86400,
       "unlocked": false,
-      "hidden": false,
       "id": "a26"
     },
     {
@@ -1397,7 +1384,6 @@
       "property": "stats.seconds_played",
       "required": 604800,
       "unlocked": false,
-      "hidden": false,
       "id": "a27"
     },
     {
@@ -1406,7 +1392,6 @@
       "property": "stats.seconds_played",
       "required": 2592000,
       "unlocked": false,
-      "hidden": false,
       "id": "a28"
     },
     {
@@ -1415,7 +1400,6 @@
       "property": "stats.total_spent",
       "required": 1000000,
       "unlocked": false,
-      "hidden": false,
       "id": "a29"
     },
     {
@@ -1424,7 +1408,6 @@
       "property": "stats.total_spent",
       "required": 1000000000,
       "unlocked": false,
-      "hidden": false,
       "id": "a30"
     },
     {
@@ -1433,7 +1416,6 @@
       "property": "stats.total_spent",
       "required": 1000000000000,
       "unlocked": false,
-      "hidden": false,
       "id": "a31"
     },
     {
@@ -1558,26 +1540,5 @@
       "type": "bad",
       "id": "e13"
     }
-  ],
-  "data": {
-    "id": "player",
-    "batch_amount": 0,
-    "batch_rps_net": 0,
-    "batch_rps_gross": 0,
-    "batch_price": 1,
-    "cash_amount": 0,
-    "cash_laundered": 0,
-    "cash_rps": 0
-  },
-  "stats": {
-    "id": "player",
-    "batches_cooked": 0,
-    "batches_cooked_hand": 0,
-    "batches_sold": 0,
-    "batches_sold_hand": 0,
-    "upgrades_purchased": 0,
-    "cash_earned": 0,
-    "cash_spent": 0,
-    "seconds_playing": 0
-  }
+  ]
 }

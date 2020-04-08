@@ -2,6 +2,7 @@ package com.example.clickingbad.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -22,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.hide()
         setupNavGraph()
+
+        sharedViewModel.saveStatus.observe(this, Observer { status ->
+            status?.let {
+                Toast.makeText(this, "Game Saved", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
 
         events_notification.isVisible = false
     }

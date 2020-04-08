@@ -1,6 +1,7 @@
 package com.example.clickingbad.utils
 
 import com.example.clickingbad.business_logic.models.*
+import java.util.*
 
 object SqlFunctions {
 
@@ -42,16 +43,16 @@ object SqlFunctions {
                 "VALUES ('${data.name}','${data.description}',${data.chance},${data.mod},'${data.type}','${data.id}')"
     }
 
-    fun getSqlPlayerData(data: PlayerData): String {
+    fun getSqlPlayerData(): String {
         return "INSERT OR ABORT INTO `cb_player_data_table` " +
-                "(`id`,`batchAmount`,`batchRpsNet`,`batchRpsGross`,`batchPrice`,`cashAmount`,`cashLaundered`,`cashRps`) " +
-                "VALUES ('${data.id}',${data.batchAmount},${data.batchRpsNet},${data.batchRpsGross},${data.batchPrice},${data.cashAmount},${data.cashLaundered},${data.cashRps})"
+                "(`id`,`batchAmount`,`batchRpsNet`,`batchRpsGross`,`batchPrice`,`cashAmount`,`cashLaundered`,`cashRps`,`lastTick`) " +
+                "VALUES ('player',0,0,0,1,0,0,0,${Calendar.getInstance().timeInMillis})"
     }
 
-    fun getSqlPlayerStats(data: PlayerStats): String {
+    fun getSqlPlayerStats(): String {
         return "INSERT OR ABORT INTO `cb_player_stats_table` " +
                 "(`id`,`batchesCooked`,`batchesCookedHand`,`batchesSold`,`batchesSoldHand`,`upgradesPurchased`,`cashEarned`,`cashSpent`,`secondsPlaying`) " +
-                "VALUES ('${data.id}',${data.batchesCooked},${data.batchesCookedHand},${data.batchesSold},${data.batchesSoldHand},${data.upgradesPurchased},${data.cashEarned},${data.cashSpent},${data.secondsPlaying})"
+                "VALUES ('player',0,0,0,0,0,0,0,0)"
     }
 
 }

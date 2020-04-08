@@ -49,7 +49,7 @@ class UpgradesListAdapter() :
 
         fun bind(upgrade: UpgradesItem, expanded: Boolean) {
             itemView.resource_name.text = upgrade.label
-            itemView.resource_cost.text = formatCost(upgrade.cost!!)
+            itemView.resource_cost.text = formatCost(upgrade.cost)
 
             when (upgrade.unlocked) {
                 true -> {

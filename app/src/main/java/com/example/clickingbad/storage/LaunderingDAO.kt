@@ -16,4 +16,9 @@ abstract class LaunderingDAO {
     )
     abstract suspend fun getLaundering(): List<LaunderingItem>
 
+    @Query(
+        "SELECT * FROM cb_laundering_table WHERE unlocked = 1"
+    )
+    abstract suspend fun getUnlockedLaundering(): List<LaunderingItem>
+
 }

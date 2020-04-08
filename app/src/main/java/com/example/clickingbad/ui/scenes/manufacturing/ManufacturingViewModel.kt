@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.liveData
 import com.example.clickingbad.storage.ClickingBadDatabase
-import com.example.clickingbad.storage.ManufacturingDAO
 import kotlinx.coroutines.Dispatchers
 
 class ManufacturingViewModel(application: Application) :
