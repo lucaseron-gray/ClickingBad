@@ -12,8 +12,7 @@ import com.example.clickingbad.utils.startCoroutineTimer
 import kotlinx.coroutines.*
 import java.util.*
 
-const val tickMilli: Long = 100
-const val thisSub = 10
+const val tickMilli: Long = 1000
 
 class SharedViewModel(application: Application) :
     AndroidViewModel(application) {
@@ -23,9 +22,12 @@ class SharedViewModel(application: Application) :
     val livePlayerData = MutableLiveData<PlayerData>()
     val saveStatus = MutableLiveData<Boolean?>()
 
-    private var thisTick: Long? = null
-    private var lastTick: Long? = null
-    private var ticks: Long? = null
+    private val maLive = MutableLiveData<List<ManufacturingItem>>()
+    private val diLive = MutableLiveData<List<DistributionItem>>()
+    private val laLive = MutableLiveData<List<LaunderingItem>>()
+
+    private var thisTick: Long = 0
+    private var lastTick: Long = 0
 
     private var makeAmount: Long = 0
     private var sellAmount: Long = 0
@@ -34,9 +36,10 @@ class SharedViewModel(application: Application) :
     init {
         viewModelScope.launch {
             livePlayerData.value = database.playerDataDAO().getPlayerData()
-            lastTick = livePlayerData.value?.lastTick
+            lastTick = livePlayerData.value?.lastTick!!
 
-            getUnlocked()
+            calcConstants()
+            delay(1000)
             startTick()
         }
         // save game every 30 seconds
@@ -46,35 +49,31 @@ class SharedViewModel(application: Application) :
         }
     }
 
-    private fun getUnlocked() {
+    fun refreshData() {
         viewModelScope.launch {
-            val unlockedManufacturing = database.manufacturingDao().getUnlockedManufacturing()
-            val unlockedDistribution = database.distributionDao().getUnlockedDistribution()
-            val unlockedLaundering = database.launderingDao().getUnlockedLaundering()
-
-            // default é 1 unlocked em cada
-            calcConstants(unlockedManufacturing, unlockedDistribution, unlockedLaundering)
+            maLive.value = database.manufacturingDao().getUnlockedManufacturing()
+            diLive.value = database.distributionDao().getUnlockedDistribution()
+            laLive.value = database.launderingDao().getUnlockedLaundering()
+            calcConstants()
         }
     }
 
-    private fun calcConstants(
-        maList: List<ManufacturingItem>,
-        diList: List<DistributionItem>,
-        laList: List<LaunderingItem>
-    ) {
+    private fun calcConstants() {
         makeAmount = 0
         sellAmount = 0
         launderAmount = 0
 
-        maList.forEach {
+
+        maLive.value?.forEach {
             makeAmount += it.amount * it.rps
         }
-        diList.forEach {
+        diLive.value?.forEach {
             sellAmount += it.amount * it.rps
         }
-        laList.forEach {
+        laLive.value?.forEach {
             launderAmount += it.amount * it.rps
         }
+
     }
 
     // Tick function
@@ -89,15 +88,14 @@ class SharedViewModel(application: Application) :
 
     private fun tick() {
         thisTick = Calendar.getInstance().timeInMillis
-        ticks = (thisTick!! - lastTick!!) / tickMilli
-        lastTick = thisTick as Long
+        lastTick = thisTick
 
         /*
         doLaunder((launderAmount/thisSub) * ticks!!)
          */
 
-        doMake((makeAmount/thisSub) * ticks!!)
-        doSell((sellAmount/thisSub) * ticks!!)
+        doMake(makeAmount)
+        doSell(sellAmount)
 
         livePlayerData.postValue(livePlayerData.value)
     }
@@ -126,6 +124,7 @@ class SharedViewModel(application: Application) :
         livePlayerData.value?.let {
             it.batchAmount++
         }
+        livePlayerData.postValue(livePlayerData.value)
     }
 
     // Sell button clicked
@@ -136,6 +135,7 @@ class SharedViewModel(application: Application) :
                 it.batchAmount--
             }
         }
+        livePlayerData.postValue(livePlayerData.value)
     }
 
     // Update DB

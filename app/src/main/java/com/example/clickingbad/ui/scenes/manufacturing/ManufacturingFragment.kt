@@ -9,10 +9,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.clickingbad.R
+import com.example.clickingbad.business_logic.models.ManufacturingItem
 import com.example.clickingbad.ui.adapters.ManufacturingListAdapter
+import com.example.clickingbad.ui.adapters.OnObjectClickedListener
 import kotlinx.android.synthetic.main.fragment_manufacturing.rv_manufacturing
 
-class ManufacturingFragment : Fragment() {
+class ManufacturingFragment : Fragment(), OnObjectClickedListener<ManufacturingItem> {
 
 //    same shizzle
 //    private val viewModel2 = ViewModelProvider(this).get(ManufacturingViewModel::class.java)
@@ -20,7 +22,7 @@ class ManufacturingFragment : Fragment() {
 //    private val viewModelAct: ManufacturingViewModel by activityViewModels()
 
     private val viewModel: ManufacturingViewModel by viewModels()
-    private val manufacturingAdapter = ManufacturingListAdapter() // é o seu madruga
+    private val manufacturingAdapter = ManufacturingListAdapter(this) // é o seu madruga
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,9 +43,14 @@ class ManufacturingFragment : Fragment() {
         }
 
         // asynchronous
-        viewModel.manufacturingList.observe(viewLifecycleOwner, Observer {
+        viewModel.liveManufacturingDb.observe(viewLifecycleOwner, Observer {
             manufacturingAdapter.submitList(it)
         })
+    }
+
+    override fun onObjectClicked(dataObj: ManufacturingItem) {
+        super.onObjectClicked(dataObj)
+        viewModel.updateManufacturingList(dataObj)
     }
 
 }

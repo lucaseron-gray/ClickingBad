@@ -1,5 +1,6 @@
 package com.example.clickingbad.storage
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -20,5 +21,10 @@ abstract class DistributionDAO {
         "SELECT * FROM cb_distribution_table WHERE unlocked = 1"
     )
     abstract suspend fun getUnlockedDistribution(): List<DistributionItem>
+
+    @Query(
+        "SELECT * FROM cb_distribution_table WHERE unlocked = 1"
+    )
+    abstract fun getObservable(): LiveData<List<DistributionItem>>
 
 }

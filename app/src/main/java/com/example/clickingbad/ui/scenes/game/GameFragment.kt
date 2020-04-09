@@ -2,6 +2,7 @@ package com.example.clickingbad.ui.scenes.game
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,4 +59,10 @@ class GameFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        Log.i("GameFragment", "onResume Called!")
+        sharedViewModel.refreshData()
+    }
 }

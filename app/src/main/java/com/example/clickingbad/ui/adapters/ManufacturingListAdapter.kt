@@ -11,7 +11,7 @@ import com.example.clickingbad.utils.formatCost
 import com.example.clickingbad.utils.manufacturingValuesHtml
 import kotlinx.android.synthetic.main.rv_item_default.view.*
 
-class ManufacturingListAdapter() :
+class ManufacturingListAdapter(val onClickListener: OnObjectClickedListener<ManufacturingItem>) :
     RecyclerView.Adapter<ManufacturingListAdapter.ViewHolder>() {
 
     private var list: List<ManufacturingItem> = emptyList()
@@ -42,7 +42,7 @@ class ManufacturingListAdapter() :
 
     override fun getItemCount(): Int = list.size
 
-    class ViewHolder(itemView: View) :
+    inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
         fun bind(upgrade: ManufacturingItem, expanded: Boolean) {
@@ -59,7 +59,10 @@ class ManufacturingListAdapter() :
                 0 -> itemView.button_sell.isVisible = false
                 else -> itemView.button_sell.isVisible = true
             }
+
+            itemView.button_purchase.setOnClickListener {
+                onClickListener.onObjectClicked(upgrade)
+            }
         }
     }
-
 }

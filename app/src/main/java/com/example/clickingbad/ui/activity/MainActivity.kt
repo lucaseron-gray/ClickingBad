@@ -10,11 +10,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.clickingbad.R
+import com.example.clickingbad.ui.scenes.manufacturing.ManufacturingViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private val sharedViewModel: SharedViewModel by viewModels()
+    private val manufacturingViewModel: ManufacturingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,10 @@ class MainActivity : AppCompatActivity() {
                     .show()
             }
         })
+
+//        sharedViewModel.maLive.observe(this, Observer {
+//            sharedViewModel.calcConstants()
+//        })
 
         events_notification.isVisible = false
     }
